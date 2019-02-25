@@ -292,7 +292,7 @@ class Agent:
         targets = np.empty((batch_size, self.action_size))
         index = 0
         for state, action, reward, next_state in minibatch:
-            if index%(32*50) == 0:
+            if self.number_reply % 50 == 0:
                 self.model_target = self.model       #target network update every 50 trainings
 
             # index_reward = self.memory.index(reward)   # long term reward
